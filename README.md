@@ -8,28 +8,35 @@ Credit: **Sabuj (CortexHost)**
 
 ---
 
-## ✨ Features (35 tools in one menu)
+## ✨ Features (56 tools in one menu)
+
+### 🧙 Guided Setup
+- **Full Setup Wizard** — one flow that walks you through theme → username/hostname → optional background image → optional startup banner, then applies everything together
+- **Auto-Install Mode toggle** — every installer checks if a tool is already present first. In **Auto** mode it silently skips what's already installed; in **Manual** mode it asks before reinstalling. No wasted re-downloads.
 
 ### 🎨 Appearance
-- 12 built-in color themes (Kali, Dracula, Tokyo Night, Nord, Solarized, and more)
+- 14 built-in color themes (Kali, Dracula, Tokyo Night, Nord, Solarized, Gruvbox, Catppuccin, and more)
 - Custom theme builder (enter your own hex codes)
+- Random theme shuffler
 - ANSI color palette previewer
-- Nerd Font installer (FiraCode, Hack, JetBrainsMono, or custom URL)
-- Terminal background image setter
+- Nerd Font installer (FiraCode, Hack, JetBrainsMono, or custom URL) — verifies the download actually succeeded
+- Terminal background image setter — **honest note:** stock Termux does not render picture backgrounds in the terminal itself (this is a Termux limitation, not a bug in the tool). The file still saves to `~/.termux/background.png` for forks/emulators that do support it; solid-color theming is handled by the Theme Picker instead
+- Extra Keys row customizer, cursor style, cursor blink, terminal bell behavior (via `termux.properties`)
 
 ### 🐚 Shell & Prompt
 - Zsh + Oh My Zsh + autosuggestions + syntax highlighting, one-click install
 - Powerlevel10k theme installer
-- Username/hostname prompt customizer
+- Username/hostname prompt customizer (remembers your last values)
 - Default shell switcher (bash / zsh / fish)
 - Fish shell installer
 
-### ⚡ Productivity Tools
+### ⚡ Productivity Tools (all auto-package aware)
 - `fzf` fuzzy finder with keybindings
 - `zoxide` smarter `cd`
 - `eza` modern `ls` replacement with icons
 - `bat` syntax-highlighted `cat`
 - `fastfetch` system info on login
+- `ripgrep`, `fd`, `htop`, `tree`, `ncdu`, `lazygit`
 - Alias manager (add / list / remove your own shortcuts)
 
 ### 🧑‍💻 Dev Tools
@@ -43,18 +50,23 @@ Credit: **Sabuj (CortexHost)**
 ### 🛠 System Utilities
 - Startup banner designer for `.bashrc`
 - Weather widget on login (via wttr.in)
+- Custom MOTD (message of the day)
 - Storage access setup (`termux-setup-storage`)
 - Shell history tuning (size, dedup)
 - Clipboard test (Termux:API)
 - Notification test (Termux:API)
-- Package manager shortcuts: update/upgrade, autoclean, list, export/import package lists
+- `termux-api` package installer
+- Package manager shortcuts: update/upgrade, autoclean, list, export/import package lists, install/uninstall by name
+- Disk usage summary for your home directory
 
 ### 💾 Backup & Maintenance
 - Full config backup to a single `.tar.gz`
+- Export/import a shareable config bundle (hand your setup to a friend)
 - Safe rollback (restore last backup)
 - Hard purge (reset everything to defaults, with confirmation)
-- Self-update from GitHub
+- Self-update from GitHub + custom update-source URL
 - Current configuration viewer
+- Dependency status check (see what's installed at a glance)
 - About / credits screen
 
 ---
@@ -78,7 +90,11 @@ Just run:
 python3 styler.py
 ```
 
-You'll get a numbered dashboard (01–35). Type the two-digit option number and hit Enter. Every destructive action (purge, rollback) asks for confirmation first, and most config-changing tools back up your existing file to `~/.termux_backup/` before touching it.
+You'll get a numbered dashboard (01–56). Type the two-digit option number and hit Enter.
+
+**New to the tool? Start with option `01` — Guided Full Setup Wizard.** It walks you through theme → username/hostname → optional background image → optional startup banner, in order, then applies everything in one shot.
+
+Every destructive action (purge, rollback) asks for confirmation first, and most config-changing tools back up your existing file to `~/.termux_backup/` before touching it. Installers check what's already on your device first (option `24` switches this between **Auto** — skip silently if present — and **Manual** — ask before reinstalling).
 
 ## 📁 What it touches
 
@@ -90,12 +106,13 @@ You'll get a numbered dashboard (01–35). Type the two-digit option number and 
 | `~/.bashrc` / `~/.zshrc` | Shell config, prompt, banner |
 | `~/.cortex_aliases` | Your custom aliases |
 | `~/.tmux.conf` / `~/.vimrc` | tmux / vim configs |
+| `~/.termux/termux.properties` | Extra keys, cursor style, bell behavior |
 | `~/.termux_backup/` | Auto-backups before overwriting configs |
-| `~/.cortex_styler/` | Tool's own settings |
+| `~/.cortex_styler/` | Tool's own settings (install mode, saved profile) |
 
 ## 🔄 Updating
 
-Menu option **33** pulls the latest `styler.py` straight from this repo and restarts itself.
+Menu option **52** pulls the latest `styler.py` straight from this repo and restarts itself. Option **53** lets you point it at a different raw-file URL first.
 
 ## 🤝 Credits
 
