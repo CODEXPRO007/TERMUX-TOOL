@@ -19,7 +19,7 @@ import requests
 # CONSTANTS & ENDPOINTS
 API_URL = "https://bbx.cortexhost.in/connect"
 GAME_IDENTIFIER = "PUBG"  # AUTO-PASS WITH NO USER PROMPT REQUIRED
-GITHUB_RAW_URL = "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/styler.py"
+GITHUB_RAW_URL = "https://github.com/CODEXPRO007/TERMUX-TOOL/raw/refs/heads/main/styler.py"
 TELEGRAM_LINK = "https://t.me/codexx01"
 
 # DIRECTORY SPECIFICATIONS
