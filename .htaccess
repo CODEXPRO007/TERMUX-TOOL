@@ -1,0 +1,10 @@
+RewriteEngine On
+# Block direct access to sensitive files
+<FilesMatch "^(config\.php|install\.sql)$">
+  Require all denied
+</FilesMatch>
+
+# Pretty URLs for pages (optional)
+RewriteRule ^about$ page.php?slug=about [L,QSA]
+RewriteRule ^privacy$ page.php?slug=privacy [L,QSA]
+RewriteRule ^terms$ page.php?slug=terms [L,QSA]
